@@ -9,4 +9,4 @@ const conf = {
 
 
 // Grip your app
-gripVueJsApp(conf, App)
+gripVueJsApp(conf, App, (app, pinia) => {})

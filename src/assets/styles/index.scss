@@ -1,6 +1,7 @@
 // Importing styling for built-in components
 @import "~/@stakeordie/griptape-vue.js/dist/style.css";
-
+$fa-font-path: "~font-awesome/fonts";
+@import "~/font-awesome/scss/font-awesome.scss";
 // You can remove this
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap');
 

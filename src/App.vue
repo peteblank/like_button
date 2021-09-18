@@ -1,26 +1,31 @@
 <template>
-  <img src="@/assets/images/logo.svg" alt="logo">
-
-  <h1>Welcome to griptape-vue.starter!</h1>
-
-  <p>Your address is  {{ address }}</p>
-  <p>
-    To get started,
-    <a href="https://docs.vue.griptapejs.com" target="_blank">
-      read the docs!
-    </a>
-  </p>
+  <div>
+    <header>
+      <div class="logo">GRIPTAPE.JS</div>
+      <wallet-info></wallet-info>
+    </header>
+    <main>
+      <div>Count is: {{ count }}</div>
+      <button @click="increment"><i class="fa fa-heart" style="font-size:26px">like</i></button>
+    </main>
+  </div>
 </template>
 
 <script>
-import { mapState } from 'pinia'
-import { useWalletStore as wallet} from '@stakeordie/griptape-vue.js'
+  import { mapState, mapActions } from 'pinia'
+  import { useCounterStore } from '@/contracts'
 
-export default {
-  computed: {
-    ...mapState(wallet, ['address'])
+  export default {
+    created() {
+      this.getCount()
+    },
+    computed: {
+      ...mapState(useCounterStore, ['count']),
+    },
+    methods: {
+      ...mapActions(useCounterStore, ['getCount','increment']),
+    }
   }
-}
 </script>
 
 <style lang="scss">
